@@ -6,7 +6,7 @@ with open(filename) as f:
     reader = csv.reader(f)
     headerRow = next(reader)
     
-    underThirteen = 0
+    underfifteen = 0
     fifteenNineteen = 0
     twentyTwentynine= 0 
     thirtyThirtynine = 0
@@ -18,8 +18,8 @@ with open(filename) as f:
     ageGroups = []
     for row in reader:
         if row[4] == 'Grand Traverse County' and row[5] == '1' or row[4] == 'Leelanau County' and row[5] == '1' or row[4] == 'Wexford County' and row[5] == '1' or row[4] == 'Benzie County' and row[5] == '1':
-            underThirteen += int(row[9])
-            underThirteen += int(row[12])
+            underfifteen += int(row[9])
+            underfifteen += int(row[12])
 
             fifteenNineteen += int(row[48])
 
@@ -44,7 +44,7 @@ with open(filename) as f:
             eightyAbove += int(row[87])
             eightyAbove += int(row[90])
                     
-    ageGroups.append(underThirteen)
+    ageGroups.append(underfifteen)
     ageGroups.append(fifteenNineteen)   
     ageGroups.append(twentyTwentynine)
     ageGroups.append(thirtyThirtynine) 
@@ -56,7 +56,7 @@ with open(filename) as f:
 
 print(ageGroups)
 
-labels = 'Under 13', '15 - 19', '20 - 29', '30 - 39', '40-49', '50 - 59', '60 - 69', '70 - 79', '80 Above'
+labels = 'Under 15', '15 - 19', '20 - 29', '30 - 39', '40-49', '50 - 59', '60 - 69', '70 - 79', '80 Above'
 explode = (.1, 0, 0, 0, 0, 0, 0, 0, 0)  # only "explode" the 1st wedge
 wedgeColors=('green','blue','yellow','orange', 'purple', 'pink', 'turquoise', 'salmon', 'lavender')
 

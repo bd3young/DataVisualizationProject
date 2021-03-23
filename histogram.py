@@ -1,14 +1,11 @@
 import csv
 from datetime import datetime
+import matplotlib.pyplot as plt
 
 filename = 'data\\tcTempsYears.csv'
 with open(filename) as f:
     reader = csv.reader(f)
     headerRow = next(reader)
-    print(headerRow)
-
-    for index, columnHeader in enumerate(headerRow):
-        print(index, columnHeader)
 
     dates, avergs = [], []
     for row in reader:
@@ -17,6 +14,9 @@ with open(filename) as f:
             averg = int(float(row[5]))
             dates.append(currentDate)
             avergs.append(averg)
-
-    print(dates)
-    print(avergs)
+        
+plt.hist(avergs, bins= 5, color= 'green')
+plt.ylabel('Frequency')
+plt.xlabel('Temp (F)')
+plt.title('Tempuratures of January 1st for 11 years')
+plt.show()
